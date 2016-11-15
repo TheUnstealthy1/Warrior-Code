@@ -2,20 +2,18 @@
 // This is CODE, lets you control your character with code.
 // If you don't know how to code, don't worry, It's easy.
 // Just set attack_mode to true and ENGAGE!
-if (character.hp / character.max_hp < 0.7){
-    buy("hpot0",1);
-    parent.use('hp');
-}
-else if (character.mp / character.max_mp < 0.3){
-    buy("mpot0",1);
-    parent.use('mp');
-}
-
 
 
 setInterval(function(){
     loot();
-  
+  if (character.hp / character.max_hp < 0.7){
+    buy("hpot0",1);
+    parent.use('hp');
+}
+else if (character.mp / character.max_mp < 0.5){
+    buy("mpot0",1);
+    parent.use('mp');
+}  
 
     // Party leader
     var leader = get_player(character.party);
